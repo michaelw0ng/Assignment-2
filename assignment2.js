@@ -2,11 +2,6 @@
 Array.prototype.myEach = function( callbackFn) {
    for (let n = 0; n < this.length; n++)
    {
-      // skipping undefined doesn't mimic original method
-      /*if (this[i] === undefined)
-      {
-         continue;
-      }*/
       callbackFn(this[n], n, this);
    }
 };
@@ -26,11 +21,6 @@ Array.prototype.myMap = function(callbackFn) {
    let new_arr = [];
    for (let i = 0; i < this.length; i++)
    {
-      // skipping undefined doesn't mimic original method
-      /*if (this[i] === undefined)
-      {
-         continue;
-      }*/
       new_arr.push(callbackFn(this[i], i, this));
    }
    return new_arr;
@@ -47,11 +37,6 @@ Array.prototype.myFilter = function(callbackFn) {
    let new_arr = [];
    for (let i = 0; i < this.length; i++)
    {
-      // skipping undefined doesn't mimic original method
-      /*if (this[i] === undefined)
-      {
-         continue;
-      }*/
       if (callbackFn(this[i], i, this))
       {
          new_arr.push(this[i]);
@@ -73,11 +58,6 @@ Array.prototype.mySome = function(callbackFn) {
    let new_arr = [];
    for (let i = 0; i < this.length; i++)
    {
-      // skipping undefined doesn't mimic original method
-      //if (this[i] === undefined)
-      //{
-      //   continue;
-      //}
       if (callbackFn(this[i], i, this))
       {
          return true;
@@ -101,11 +81,6 @@ Array.prototype.myEvery = function(callbackFn) {
    let new_arr = [];
    for (let i = 0; i < this.length; i++)
    {
-      // skipping undefined doesn't mimic original method
-      //if (this[i] === undefined)
-      //{
-      //   continue;
-      //}
       if (!callbackFn(this[i], i, this))
       {
          return false;
@@ -136,11 +111,6 @@ Array.prototype.myReduce = function(callbackFn) {
    let previousValue = 0;
    for (let i = 0; i < this.length; i++)
    {
-      // skipping undefined doesn't mimic original method
-      //if (this[i] === undefined)
-      //{
-      //   continue;
-      //}
       previousValue = callbackFn(previousValue, this[i], i, this);
    }
    return previousValue;
