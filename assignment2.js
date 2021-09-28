@@ -88,18 +88,48 @@ Array.prototype.mySome = function(callbackFn) {
 
 // Testing
 
-let arr = [-1, 1, 7, "string", undefined, null];
+/*let arr = [-1, 1, 7, "string", undefined, null];
 arr = [7, "string", undefined, null];
 arr = [7, "string", undefined];
 console.log(arr.some(x=>x < 2));
 console.log(arr.mySome(x=>x < 2));
-//console.log(arr.some(x=>x===undefined));
-//console.log(arr.mySome(x=>x===undefined));
+console.log(arr.some(x=>x===undefined));
+console.log(arr.mySome(x=>x===undefined));*/
 
 // EVERY //
-Array.prototype.myEvery = function() {
-
+Array.prototype.myEvery = function(callbackFn) {
+   let new_arr = [];
+   for (let i = 0; i < this.length; i++)
+   {
+      // skipping undefined doesn't mimic original method
+      //if (this[i] === undefined)
+      //{
+      //   continue;
+      //}
+      if (!callbackFn(this[i], i, this))
+      {
+         return false;
+      }
+   }
+   return true;
 };
+
+// Testing
+
+/*let arr = [-1, 1, 7, "string", undefined, null];
+//arr = [7, "string", undefined, null];
+//arr = [7, "string", undefined];
+arr = [0, 0, 0];
+//arr = [undefined, undefined, undefined];
+arr = [null, null];
+console.log(arr.every(x=>x < 2));
+console.log(arr.myEvery(x=>x < 2));
+console.log(arr.every(x=>x===undefined));
+console.log(arr.myEvery(x=>x===undefined));
+console.log(arr.every(x=>x===0));
+console.log(arr.myEvery(x=>x===0));
+console.log(arr.every(x=>x===null));
+console.log(arr.myEvery(x=>x===null));*/
 
 // REDUCE //
 Array.prototype.myReduce = function() {
