@@ -68,8 +68,29 @@ console.log(arr.myFilter(x=>x < 2));*/
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
-
+   let new_arr = [];
+   for (let i = 0; i < this.length; i++)
+   {
+      // skipping undefined doesn't mimic original method
+      /*if (this[i] === undefined)
+      {
+         continue;
+      }*/
+      if (callbackFn(this[i], i, this))
+      {
+         return true;
+      }
+   }
+   return false;
 };
+
+// Testing
+
+/*let arr = [-1, 1, 7, "string", undefined, null];
+arr = [7, "string", undefined, null];
+arr = [7, "string", undefined];
+console.log(arr.some(x=>x < 2));
+console.log(arr.mySome(x=>x < 2));*/
 
 // EVERY //
 Array.prototype.myEvery = function() {
