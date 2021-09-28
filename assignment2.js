@@ -70,7 +70,7 @@ console.log(arr.myFilter(x=>x===undefined));*/
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
-   /*let new_arr = [];
+   let new_arr = [];
    for (let i = 0; i < this.length; i++)
    {
       // skipping undefined doesn't mimic original method
@@ -83,18 +83,18 @@ Array.prototype.mySome = function(callbackFn) {
          return true;
       }
    }
-   return false;*/
+   return false;
 };
 
 // Testing
 
-/*let arr = [-1, 1, 7, "string", undefined, null];
+let arr = [-1, 1, 7, "string", undefined, null];
 arr = [7, "string", undefined, null];
 arr = [7, "string", undefined];
 console.log(arr.some(x=>x < 2));
 console.log(arr.mySome(x=>x < 2));
-console.log(arr.some(x=>x===undefined));
-console.log(arr.mySome(x=>x===undefined));*/
+//console.log(arr.some(x=>x===undefined));
+//console.log(arr.mySome(x=>x===undefined));
 
 // EVERY //
 Array.prototype.myEvery = function() {
