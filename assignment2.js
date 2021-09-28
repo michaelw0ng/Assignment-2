@@ -2,10 +2,11 @@
 Array.prototype.myEach = function( callbackFn) {
    for (let n = 0; n < this.length; n++)
    {
-      if (this[n] === undefined)
+      // skipping undefined doesn't mimic original method
+      /*if (this[i] === undefined)
       {
-         continue; // may remove for more accurate functionality
-      }
+         continue;
+      }*/
       callbackFn(this[n], n, this);
    }
 };
@@ -23,10 +24,11 @@ Array.prototype.myMap = function(callbackFn) {
    let new_arr = [];
    for (let i = 0; i < this.length; i++)
    {
-      if (this[i] === undefined)
+      // skipping undefined doesn't mimic original method
+      /*if (this[i] === undefined)
       {
-         continue; // may remove for more accurate functionality
-      }
+         continue;
+      }*/
       new_arr.push(callbackFn(this[i], i, this));
    }
    return new_arr;
@@ -40,11 +42,21 @@ console.log(arr.myMap(x=>x * 2));*/
 
 // FILTER //
 Array.prototype.myFilter = function() {
-
+   let new_arr = [];
+   for (let i = 0; i < this.length; i++)
+   {
+      // skipping undefined doesn't mimic original method
+      /*if (this[i] === undefined)
+      {
+         continue;
+      }*/
+      new_arr.push(callbackFn(this[i], i, this));
+   }
+   return new_arr;
 };
 
 // SOME //
-Array.prototype.mySome = function() {
+Array.prototype.mySome = function(callbackFn) {
 
 };
 
