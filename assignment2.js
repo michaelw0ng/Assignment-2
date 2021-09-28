@@ -132,9 +132,30 @@ console.log(arr.every(x=>x===null));
 console.log(arr.myEvery(x=>x===null));*/
 
 // REDUCE //
-Array.prototype.myReduce = function() {
-
+Array.prototype.myReduce = function(callbackFn) {
+   let previousValue = 0;
+   for (let i = 0; i < this.length; i++)
+   {
+      // skipping undefined doesn't mimic original method
+      //if (this[i] === undefined)
+      //{
+      //   continue;
+      //}
+      previousValue = callbackFn(previousValue, this[i], i, this);
+   }
+   return previousValue;
 };
+
+// Testing
+
+/*let arr = [-1, 1, 7, "string", undefined, null];
+arr = [7, "string", undefined, null];
+arr = [7, "string", undefined];
+//arr = [0, 0, 0];
+arr = [1, 2, 4];
+console.log(arr.myReduce((previousValue, currentValue)=>previousValue+currentValue));
+console.log(arr.reduce((previousValue, currentValue)=>{return previousValue + currentValue}));*/
+
 
 // INCLUDES //
 Array.prototype.myIncludes = function() {
