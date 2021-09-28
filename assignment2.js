@@ -9,10 +9,27 @@ Array.prototype.myEach = function( callbackFn) {
       callbackFn(this[n], n, this);
    }
 };
+// Testing
+
+/*let arr = [1, undefined];
+arr.forEach(l => console.log(l));
+arr.myEach(l => console.log(l));
+arr.forEach(l => console.log(l * 2));
+arr.myEach(l => console.log(l * 2));*/
+
 
 // MAP //
 Array.prototype.myMap = function() {
-
+   /*let new_arr = [];
+   for (let i = 0; i < this.length; i++)
+   {
+      if (this[i] === undefined)
+      {
+         continue;
+      }
+      new_arr.push(callbackFn(this[i], i, this));
+   }
+   return new_arr;*/
 };
 
 // FILTER //
