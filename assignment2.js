@@ -4,7 +4,7 @@ Array.prototype.myEach = function( callbackFn) {
    {
       if (this[n] === undefined)
       {
-         continue;
+         continue; // may remove for more accurate functionality
       }
       callbackFn(this[n], n, this);
    }
@@ -19,18 +19,24 @@ arr.myEach(l => console.log(l * 2));*/
 
 
 // MAP //
-Array.prototype.myMap = function() {
-   /*let new_arr = [];
+Array.prototype.myMap = function(callbackFn) {
+   let new_arr = [];
    for (let i = 0; i < this.length; i++)
    {
       if (this[i] === undefined)
       {
-         continue;
+         continue; // may remove for more accurate functionality
       }
       new_arr.push(callbackFn(this[i], i, this));
    }
-   return new_arr;*/
+   return new_arr;
 };
+
+// Testing
+
+/*let arr = [1, "string", undefined, null];
+console.log(arr.map(x=>x * 2));
+console.log(arr.myMap(x=>x * 2));*/
 
 // FILTER //
 Array.prototype.myFilter = function() {
