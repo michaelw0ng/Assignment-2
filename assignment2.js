@@ -270,9 +270,57 @@ console.log(arr.myPush(+0));
 console.log(arr);*/
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
-
+Array.prototype.myLastIndexOf = function(searchElement, fromIndex) {
+   if (fromIndex < this.length && fromIndex >= 0)
+   {
+      for (let i = fromIndex; i >= 0; i--)
+      {
+         if (searchElement === this[i])
+         {
+            return i;
+         }
+      }
+      return -1;
+   }
+   else if (fromIndex < 0)
+   {
+      for (let i = fromIndex + this.length - 1; i >= 0; i--)
+      {
+         if (searchElement === this[i])
+         {
+            return i;
+         }
+      }
+      return -1;
+   }
+   else 
+   {
+      for (let i = this.length - 1; i >= 0; i--)
+      {
+         if (searchElement === this[i])
+         {
+            return i;
+         }
+      }
+      return -1;
+   }
 };
+
+// Testing
+
+/*let arr = [0, 1, 2, 3];
+console.log(arr.lastIndexOf(2));
+console.log(arr.myLastIndexOf(2));
+console.log(arr.lastIndexOf(2, -1));
+console.log(arr.myLastIndexOf(2, -1));
+console.log(arr.lastIndexOf(2, 0));
+console.log(arr.myLastIndexOf(2, 0));
+console.log(arr.lastIndexOf(2, -3));
+console.log(arr.myLastIndexOf(2, -3));
+console.log(arr.lastIndexOf(2, 2));
+console.log(arr.myLastIndexOf(2, 2));
+console.log(arr.lastIndexOf(2, 4));
+console.log(arr.myLastIndexOf(2, 4));*/
 
 // KEYS //
 Object.grabKeys = function() {
