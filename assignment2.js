@@ -131,9 +131,47 @@ console.log(arr.reduce((previousValue, currentValue)=>{return previousValue - cu
 
 
 // INCLUDES //
-Array.prototype.myIncludes = function() {
-
+Array.prototype.myIncludes = function(searchElement, fromIndex) {
+   if (fromIndex < 0)
+   {
+      for (let i = arr.length + fromIndex; i < arr.length; i++)
+      {
+         if (searchElement === this[i])
+         {
+            return true;
+         }
+      }
+      return false;
+   }
+   else
+   {
+      for (let i = fromIndex; i < this.length; i++)
+      {
+         if (searchElement === this[i])
+         {
+            return true;
+         }
+      }
+      return false;
+   }
 };
+
+// Testing
+
+let arr = [1, 2, 3];
+arr = [-1, 1, 7, "string", undefined, null];
+console.log(arr.includes(1));
+console.log(arr.myIncludes(1));
+console.log(arr.includes(undefined));
+console.log(arr.myIncludes(undefined));
+console.log(arr.includes("string"));
+console.log(arr.myIncludes("string"));
+console.log(arr.includes(null));
+console.log(arr.myIncludes(null));
+console.log(arr.includes(null, -1));
+console.log(arr.myIncludes(null, -1));
+console.log(arr.includes(-1, -6));
+console.log(arr.myIncludes(-1, -6));
 
 // INDEXOF //
 Array.prototype.myIndexOf = function() {
