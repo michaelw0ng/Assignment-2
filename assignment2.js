@@ -143,9 +143,20 @@ Array.prototype.myIncludes = function(searchElement, fromIndex) {
       }
       return false;
    }
-   else
+   else if (fromIndex > 0)
    {
       for (let i = fromIndex; i < this.length; i++)
+      {
+         if (searchElement === this[i])
+         {
+            return true;
+         }
+      }
+      return false;
+   }
+   else
+   {
+      for (let i = 0; i < this.length; i++)
       {
          if (searchElement === this[i])
          {
@@ -158,27 +169,78 @@ Array.prototype.myIncludes = function(searchElement, fromIndex) {
 
 // Testing
 
-let arr = [1, 2, 3];
+/*let arr = [1, 2, 3];
 arr = [-1, 1, 7, "string", undefined, null];
-arr = [-0, 0];
+//arr = [-0, 0];
 console.log(arr.includes(+0));
 console.log(arr.myIncludes(+0));
-arr = [-0, +0]
-//console.log(arr.includes(undefined));
-//console.log(arr.myIncludes(undefined));
-//console.log(arr.includes("string"));
-//console.log(arr.myIncludes("string"));
+//arr = [-0, +0]
+console.log(arr.includes(undefined));
+console.log(arr.myIncludes(undefined));
+console.log(arr.includes("string"));
+console.log(arr.myIncludes("string"));
 console.log(arr.includes(0));
 console.log(arr.myIncludes(0));
-//console.log(arr.includes(null, -1));
-//console.log(arr.myIncludes(null, -1));
-//console.log(arr.includes(-1, -6));
-//console.log(arr.myIncludes(-1, -6));*/
+console.log(arr.includes(null, -1));
+console.log(arr.myIncludes(null, -1));
+console.log(arr.includes(-1, -6));
+console.log(arr.myIncludes(-1, -6));*/
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
-
+Array.prototype.myIndexOf = function(searchElement, fromIndex) {
+   if (fromIndex < 0)
+   {
+      for (let i = arr.length + fromIndex; i < arr.length; i++)
+      {
+         if (searchElement === this[i])
+         {
+            return i;
+         }
+      }
+      return -1;
+   }
+   else if (fromIndex > 0)
+   {
+      for (let i = fromIndex; i < this.length; i++)
+      {
+         if (searchElement === this[i])
+         {
+            return i;
+         }
+      }
+      return -1;
+   }
+   else
+   {
+      for (let i = 0; i < this.length; i++)
+      {
+         if (searchElement === this[i])
+         {
+            return i;
+         }
+      }
+      return -1;
+   }
 };
+
+// Testing
+
+/*//let arr = [1, 2, 3];
+arr = [-1, 1, 7, "string", undefined, null];
+//console.log(arr.indexOf(null, -1));
+//console.log(arr.myIndexOf(null, -1));
+//console.log(arr.indexOf(-1, -6));
+//console.log(arr.myIndexOf(-1, -6))
+console.log(arr.indexOf(undefined));
+console.log(arr.myIndexOf(undefined));
+console.log(arr.indexOf("string"));
+console.log(arr.myIndexOf("string"));
+arr = [-0, 0];
+console.log(arr.indexOf(+0));
+console.log(arr.myIndexOf(+0));
+arr = [-0, +0]
+console.log(arr.indexOf(0));
+console.log(arr.myIndexOf(0));*/
 
 // PUSH //
 Array.prototype.myPush = function() {
