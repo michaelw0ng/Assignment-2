@@ -243,9 +243,31 @@ console.log(arr.indexOf(0));
 console.log(arr.myIndexOf(0));*/
 
 // PUSH //
-Array.prototype.myPush = function() {
-
+Array.prototype.myPush = function (...args) {
+   let args_i = 0;
+   let length = this.length;
+   for (let i = length; i < length + args.length; i++)
+   {
+      this[i] = args[args_i];
+      args_i++;
+   }
+   return this.length;
 };
+
+// Testing
+
+/*let arr = [0, 1];
+console.log(arr.push(2, 3, 4));
+console.log(arr.push(2));
+console.log(arr.push(null));
+console.log(arr.push(undefined));
+console.log(arr.push(+0));
+console.log(arr.myPush(2, 3, 4));
+console.log(arr.myPush(2));
+console.log(arr.myPush(null));
+console.log(arr.myPush(undefined));
+console.log(arr.myPush(+0));
+console.log(arr);*/
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function() {
