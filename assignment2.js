@@ -160,18 +160,20 @@ Array.prototype.myIncludes = function(searchElement, fromIndex) {
 
 let arr = [1, 2, 3];
 arr = [-1, 1, 7, "string", undefined, null];
-console.log(arr.includes(1));
-console.log(arr.myIncludes(1));
-console.log(arr.includes(undefined));
-console.log(arr.myIncludes(undefined));
-console.log(arr.includes("string"));
-console.log(arr.myIncludes("string"));
-console.log(arr.includes(null));
-console.log(arr.myIncludes(null));
-console.log(arr.includes(null, -1));
-console.log(arr.myIncludes(null, -1));
-console.log(arr.includes(-1, -6));
-console.log(arr.myIncludes(-1, -6));
+arr = [-0, 0];
+console.log(arr.includes(+0));
+console.log(arr.myIncludes(+0));
+arr = [-0, +0]
+//console.log(arr.includes(undefined));
+//console.log(arr.myIncludes(undefined));
+//console.log(arr.includes("string"));
+//console.log(arr.myIncludes("string"));
+console.log(arr.includes(0));
+console.log(arr.myIncludes(0));
+//console.log(arr.includes(null, -1));
+//console.log(arr.myIncludes(null, -1));
+//console.log(arr.includes(-1, -6));
+//console.log(arr.myIncludes(-1, -6));*/
 
 // INDEXOF //
 Array.prototype.myIndexOf = function() {
