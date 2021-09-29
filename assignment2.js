@@ -108,8 +108,8 @@ console.log(arr.myEvery(x=>x===null));*/
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn) {
-   let previousValue = 0;
-   for (let i = 0; i < this.length; i++)
+   let previousValue = this[0];
+   for (let i = 1; i < this.length; i++)
    {
       previousValue = callbackFn(previousValue, this[i], i, this);
    }
@@ -122,9 +122,12 @@ Array.prototype.myReduce = function(callbackFn) {
 arr = [7, "string", undefined, null];
 arr = [7, "string", undefined];
 //arr = [0, 0, 0];
-arr = [1, 2, 4];
+//arr = [1, 2, 4];
 console.log(arr.myReduce((previousValue, currentValue)=>previousValue+currentValue));
-console.log(arr.reduce((previousValue, currentValue)=>{return previousValue + currentValue}));*/
+console.log(arr.reduce((previousValue, currentValue)=>{return previousValue + currentValue}));
+arr = [10, 1, 2];
+console.log(arr.myReduce((previousValue, currentValue)=>previousValue-currentValue));
+console.log(arr.reduce((previousValue, currentValue)=>{return previousValue - currentValue}));*/
 
 
 // INCLUDES //
