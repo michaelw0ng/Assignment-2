@@ -325,6 +325,14 @@ console.log(arr.myLastIndexOf(2, 4));*/
 // KEYS //
 Object.grabKeys = function(obj) {
    let new_arr = [];
+   if (Array.isArray(obj))
+   {
+      for (let i = 0; i < obj.length; i++)
+      {
+         new_arr.push(i.toString());
+      }
+      return new_arr;
+   }
    for (const key in obj)
    {
       new_arr.push(key.toString());
@@ -341,13 +349,33 @@ let obj = {
    undefined: undefined,
    null: null
 };
-Object.grabKeys(obj);
-console.log(Object.keys(obj));
+//console.log(Object.grabKeys(obj));
+//console.log(Object.keys(obj));
 obj = ["a", "b", "c"];
-Object.grabKeys(obj);
+console.log(Object.grabKeys(obj));
 console.log(Object.keys(obj));
 
 // VALUES //
 Object.grabValues = function() {
-
+   let new_arr = [];
+   for (const key in obj)
+   {
+      new_arr.push(obj.key);
+   }
+   return new_arr;
 };
+
+// Testing
+/*
+obj = {
+   a: 'abc',
+   b: 42,
+   c: false,
+   undefined: undefined,
+   null: null
+};
+console.log(Object.values(obj));
+console.log(Object.grabValues(obj));
+obj = ["a", "b", "c"];
+console.log(Object.values(obj));
+console.log(Object.grabValues(obj));*/
