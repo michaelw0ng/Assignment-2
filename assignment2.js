@@ -375,7 +375,7 @@ Object.grabValues = function() {
 
 // Testing
 
-let obj = {
+/*let obj = {
    a: 'abc',
    b: 42,
    c: false,
@@ -386,4 +386,4 @@ console.log(Object.values(obj));
 console.log(Object.grabValues(obj));
 obj = ["a", "b", "c"];
 console.log(Object.values(obj));
-console.log(Object.grabValues(obj));
+console.log(Object.grabValues(obj));*/
