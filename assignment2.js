@@ -342,32 +342,40 @@ Object.grabKeys = function(obj) {
 
 // Testing
 
-let obj = {
+/*let obj = {
    a: 'abc',
    b: 42,
    c: false,
    undefined: undefined,
    null: null
 };
-//console.log(Object.grabKeys(obj));
-//console.log(Object.keys(obj));
-obj = ["a", "b", "c"];
 console.log(Object.grabKeys(obj));
 console.log(Object.keys(obj));
+obj = ["a", "b", "c"];
+console.log(Object.grabKeys(obj));
+console.log(Object.keys(obj));*/
 
 // VALUES //
 Object.grabValues = function() {
    let new_arr = [];
+   if (Array.isArray(obj))
+   {
+      for (let i = 0; i < obj.length; i++)
+      {
+         new_arr.push(obj[i]);
+      }
+      return new_arr;
+   }
    for (const key in obj)
    {
-      new_arr.push(obj.key);
+      new_arr.push(obj[key]);
    }
    return new_arr;
 };
 
 // Testing
-/*
-obj = {
+
+let obj = {
    a: 'abc',
    b: 42,
    c: false,
@@ -378,4 +386,4 @@ console.log(Object.values(obj));
 console.log(Object.grabValues(obj));
 obj = ["a", "b", "c"];
 console.log(Object.values(obj));
-console.log(Object.grabValues(obj));*/
+console.log(Object.grabValues(obj));
