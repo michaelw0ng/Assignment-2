@@ -1,2 +1,2 @@
-# Assignment-2
+# Gridcolor
 ## Name: Michael Wong Github: michaelw0ng
